@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.w3c.dom.Document;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -19,7 +20,7 @@ class ShapeUtilsTest {
     void testGenerateRandomShapes() {
         double positionMax = 10.0;
         double sizeMax = 20.0;
-        ArrayList<Shape> shapes = ShapeUtils.generateRandomShapes(14, positionMax, sizeMax);
+        List<Shape> shapes = ShapeUtils.generateRandomShapes(14, positionMax, sizeMax);
         assertEquals(14, shapes.size());
 
         for (Shape shape : shapes) {
@@ -31,7 +32,7 @@ class ShapeUtilsTest {
     @DisplayName("two positions are too close, should remove one.")
     @Test
     void testRemoveCloseByShapes() {
-        ArrayList<Shape> shapes = new ArrayList<>();
+        List<Shape> shapes = new ArrayList<>();
         double x = 0.0;
         double y = 0.0;
         shapes.add(new Circle(new Position(x, y), 64.0));
@@ -45,7 +46,7 @@ class ShapeUtilsTest {
     @DisplayName("three positions are too close, should remove 2.")
     @Test
     void testRemoveCloseByShapes_2() {
-        ArrayList<Shape> shapes = new ArrayList<>();
+        List<Shape> shapes = new ArrayList<>();
         double x = 0.0;
         double y = 0.0;
         shapes.add(new Circle(new Position(x, y), 64.0));
@@ -59,7 +60,7 @@ class ShapeUtilsTest {
     @DisplayName("No positions are too close, should remove nothing.")
     @Test
     void testRemoveCloseByShapes_3() {
-        ArrayList<Shape> shapes = new ArrayList<>();
+        List<Shape> shapes = new ArrayList<>();
         shapes.add(new Circle(new Position(0, 0), 64.0));
         shapes.add(new Square(new Position(5, 5), 32.0));
         shapes.add(new Rectangle(new Position(10.0, 0.0), 20.0, 10.0));

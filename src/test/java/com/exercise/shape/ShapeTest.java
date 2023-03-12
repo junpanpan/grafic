@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -15,7 +16,7 @@ class ShapeTest {
 
     @Test
     void testShapeIsComparableByArea() {
-        ArrayList<Shape> shapes = new ArrayList<>();
+        List<Shape> shapes = new ArrayList<>();
         double x = 0.0;
         double y = 0.0;
         Circle circle = new Circle(new Position(x, y), 64.0);

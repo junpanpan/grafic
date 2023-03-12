@@ -13,9 +13,12 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class ShapeUtils {
+
+    private ShapeUtils() {}
 
     /**
      * Generates a ArrayList of random Shapes
@@ -27,7 +30,7 @@ public class ShapeUtils {
      * @return
      * @throws InvalidSizeException
      */
-    public static ArrayList<Shape> generateRandomShapes(int count, double positionMax, double sizeMax) throws InvalidSizeException {
+    public static List<Shape> generateRandomShapes(int count, double positionMax, double sizeMax) throws InvalidSizeException {
         final Random random = new Random();
         final ArrayList<Shape> shapes = new ArrayList<>(count);
 
@@ -65,7 +68,7 @@ public class ShapeUtils {
      * @param shapes    the ArrayList of shapes to modify
      * @param threshold the threshold to use as filter
      */
-    public static void removeCloseByShapes(ArrayList<Shape> shapes, double threshold) {
+    public static void removeCloseByShapes(List<Shape> shapes, double threshold) {
         if (shapes == null || threshold <= 0.0) {
             return;
         }
@@ -91,14 +94,13 @@ public class ShapeUtils {
      * @return the XML document
      * @throws PersistenceWriteException
      */
-    public static Document createXML(ArrayList<Shape> shapes) throws PersistenceWriteException {
+    public static Document createXML(List<Shape> shapes) throws PersistenceWriteException {
 
         DocumentBuilder documentBuilder;
         try {
             // Create XML document
             documentBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
         } catch (ParserConfigurationException e) {
-//            System.err.println("Unable to create document.");
             throw new PersistenceWriteException("Unable to create document object.");
         }
 

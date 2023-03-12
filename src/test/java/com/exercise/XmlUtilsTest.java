@@ -11,6 +11,7 @@ import org.w3c.dom.Document;
 import java.nio.file.InvalidPathException;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -35,7 +36,7 @@ class XmlUtilsTest {
     @Test
     void test() throws Exception {
 
-        final ArrayList<Shape> shapes = ShapeUtils.generateRandomShapes(2, 10, 10);
+        final List<Shape> shapes = ShapeUtils.generateRandomShapes(2, 10, 10);
         Document document = ShapeUtils.createXML(shapes);
         XMLUtils.writeDocumentToFile(document, path);
 

@@ -9,14 +9,14 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) throws PersistenceWriteException {
 
-        final ArrayList<Shape> shapes = ShapeUtils.generateRandomShapes(1000000, 10, 10);
+        final List<Shape> shapes = ShapeUtils.generateRandomShapes(1000000, 10, 10);
 
         ShapeUtils.removeCloseByShapes(shapes, 1);
 
